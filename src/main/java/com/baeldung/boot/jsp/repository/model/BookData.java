@@ -4,44 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Entity
+@Table(name="books")
 public class BookData {
+	
+	@Id
+	@Column(name="bk_isbn", length=200)
 	private String isbn;
+
+	@Column(name="bk_name", length=45)
 	private String name;
+	
+	@Column(name="bk_author", length=50)
 	private String author;
 	
-    public BookData(String isbn2, String name2, String author2) {
-    	isbn = isbn2;
-    	name = name2;
-    	author = author2;
-	}
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-    
+	
 }
